@@ -1,4 +1,5 @@
 from unittest import TestCase
+from numpy.testing import assert_array_equal
 
 import numpy as np
 
@@ -6,38 +7,74 @@ from projecteuler.eleven_code import Eleven
 
 
 class TestEleven(TestCase):
-    def test_highest_product_of_x_adjacent_numbers_within_matrix_vertical(self):
+    def test_create_list_of_x_by_x_sized_matrixes_horizontal(self):
         adjacent_number_count = 3
+        test_matrix = np.matrix('0 1 2 3 4 5; 0 1 2 3 4 5; 0 1 2 3 4 5')
+        test_eleven = Eleven(adjacent_number_count, test_matrix)
 
-        test_matrix = np.matrix('0 1 2 3; 0 1 2 3; 0 1 2 3; 0 1 2 3')
+        solution = test_eleven.create_list_of_x_by_x_sized_matrixes(adjacent_number_count,
+                                                                    test_matrix)
+        expected_solution = np.matrix('2 3 4; 2 3 4; 2 3 4')
+        assert_array_equal(solution[2], expected_solution)
+
+    def test_create_list_of_x_by_x_sized_matrixes_vertical(self):
+        adjacent_number_count = 3
+        test_matrix = np.matrix('0 1 2 3 4 5; 0 1 2 3 4 5; 0 1 2 3 4 5; 0 1 2 3 4 5')
+        test_eleven = Eleven(adjacent_number_count, test_matrix)
+
+        solution = test_eleven.create_list_of_x_by_x_sized_matrixes(adjacent_number_count,
+                                                                        test_matrix)
+        expected_solution = np.matrix('1 2 3; 1 2 3; 1 2 3')
+        assert_array_equal(solution[2], expected_solution)
+
+    def test_max_x_long_product_in_x_by_x_matrix_vertical(self):
+        x_by_x = 4
+        test_matrix = np.matrix('2 3 5 4; 2 3 5 4; 2 3 5 4; 2 3 5 4')
+        test_eleven = Eleven(x_by_x, test_matrix)
+
+        solution = test_eleven.max_x_long_product_in_x_by_x_matrix(x_by_x, test_matrix)
+
+        expected_solution = 625
+        self.assertEqual(solution, expected_solution)
+
+    def test_max_x_long_product_in_x_by_x_matrix_horizontal(self):
+        x_by_x = 4
+        test_matrix = np.matrix('2 2 2 2; 3 3 3 3; 4 4 4 4; 5 5 5 5')
+        test_eleven = Eleven(x_by_x, test_matrix)
+
+        solution = test_eleven.max_x_long_product_in_x_by_x_matrix(x_by_x, test_matrix)
+
+        expected_solution = 625
+        self.assertEqual(solution, expected_solution)
+
+    def test_max_x_long_product_in_x_by_x_matrix_topleft_to_bottomright(self):
+        x_by_x = 4
+        test_matrix = np.matrix('5 1 1 1; 1 5 1 1; 1 1 5 1; 1 1 1 3')
+        test_eleven = Eleven(x_by_x, test_matrix)
+
+        solution = test_eleven.max_x_long_product_in_x_by_x_matrix(x_by_x, test_matrix)
+
+        expected_solution = 375
+        self.assertEqual(solution, expected_solution)
+
+    def test_max_x_long_product_in_x_by_x_matrix_topright_to_bottomleft(self):
+        x_by_x = 4
+        test_matrix = np.matrix('1 1 1 5; 1 1 5 1; 1 5 1 1; 3 1 1 1')
+        test_eleven = Eleven(x_by_x, test_matrix)
+
+        solution = test_eleven.max_x_long_product_in_x_by_x_matrix(x_by_x, test_matrix)
+
+        expected_solution = 375
+        self.assertEqual(solution, expected_solution)
+
+    def test_solve(self):
+        adjacent_number_count = 4
+        test_matrix = np.matrix('1 2 3 4 5 6; 1 2 3 4 5 6; 1 2 3 4 5 6; 1 2 3 4 5 6; 1 2 3 4 5 6')
 
         test_eleven = Eleven(adjacent_number_count, test_matrix)
 
         solution = test_eleven.solve()
-        expected_solution = 27
 
+        expected_solution = 1296
         self.assertEqual(solution, expected_solution)
 
-    def test_highest_product_of_x_adjacent_numbers_within_matrix_horizontal(self):
-        adjacent_number_count = 3
-
-        test_matrix = np.matrix('0 0 0 0; 1 1 1 1; 2 2 2 2; 3 3 3 3')
-
-        test_eleven = Eleven(adjacent_number_count, test_matrix)
-
-        solution = test_eleven.solve()
-        expected_solution = 27
-
-        self.assertEqual(solution, expected_solution)
-
-    def test_highest_product_of_x_adjacent_numbers_within_matrix_diagonally(self):
-        adjacent_number_count = 3
-
-        test_matrix = np.matrix('0 0 0 1; 0 0 1 0; 0 1 0 0; 1 0 0 0')
-
-        test_eleven = Eleven(adjacent_number_count, test_matrix)
-
-        solution = test_eleven.solve()
-        expected_solution = 1
-
-        self.assertEqual(solution, expected_solution)
