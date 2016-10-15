@@ -1,5 +1,6 @@
 from datetime import date, timedelta
 
+
 class Nineteen(object):
     """
     You are given the following information, but you may prefer to do some research for yourself.
