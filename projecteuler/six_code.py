@@ -7,11 +7,11 @@ class Six(object):
 
     The square of the sum of the first ten natural numbers is, 3025
 
-    Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is
-    385-3025=2640
+    Hence the difference between the sum of the squares of the first ten
+    natural numbers and the square of the sum is 385-3025=2640
 
-    Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the
-    sum.
+    Find the difference between the sum of the squares of the first one hundred
+    natural numbers and the square of the sum.
     """
 
     def __init__(self, sequence):
@@ -38,4 +38,4 @@ class Six(object):
 
 one_to_one_hundred = list(range(1, 101))
 six = Six(one_to_one_hundred)
-print six.solve()
+print(six.solve())

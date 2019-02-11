@@ -30,6 +30,7 @@ class Twenty(object):
         solution = self.sum_of_digits_in_number(factorial)
         return solution
 
+
 input_number = 100
 twenty = Twenty(input_number)
 print(twenty.solve())

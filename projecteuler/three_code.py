@@ -31,6 +31,9 @@ class Three(object):
 
         return largest_factor
 
-euler_three = Three(13195)
+    def solve(self):
+        return self.largest_prime_factor(self.input_number)
 
-print euler_three.largest_prime_factor(600851475143)
+
+euler_three = Three(600851475143)
+print(euler_three.solve())

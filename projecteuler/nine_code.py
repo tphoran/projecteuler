@@ -1,5 +1,6 @@
 import itertools
 
+
 class Nine(object):
     """
     There exists exactly one Pythagorean triplet for which a + b + c = 1000.
@@ -9,7 +10,7 @@ class Nine(object):
     def __init__(self, a_plus_b_plus_c):
         self.a_plus_b_plus_c = a_plus_b_plus_c
         self.a_plus_b_max = a_plus_b_plus_c/2
-        self.a_b_range = range(1, self.a_plus_b_max)
+        self.a_b_range = range(1, int(self.a_plus_b_max))
 
     def pythaogrean_triplet_check(self, a, b):
         a_squared = a**2
@@ -32,7 +33,7 @@ class Nine(object):
         return c
 
     def solve(self):
-        list_of_possible_sets_of_a_and_b = self.collect_all_possible_sets_of_a_and_b(range(1, self.a_plus_b_max))
+        list_of_possible_sets_of_a_and_b = self.collect_all_possible_sets_of_a_and_b(range(1, int(self.a_plus_b_max)))
         list_of_pythaogrean_triplets = []
         for i in list_of_possible_sets_of_a_and_b:
             if self.pythaogrean_triplet_check(i[0], i[1]):
@@ -45,4 +46,4 @@ class Nine(object):
 nine = Nine(1000)
 triangle = nine.solve()
 answer = triangle[0]*triangle[1]*triangle[2]
-print answer
+print(answer)

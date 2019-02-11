@@ -2,10 +2,11 @@
 
 class Eight(object):
     """
-    The four adjacent digits in the 1000-digit number that have the greatest product are 9 * 9 * 8 * 9 = 5832.
+    The four adjacent digits in the 1000-digit number that have the greatest
+    product are 9 * 9 * 8 * 9 = 5832.
 
-    Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value
-    of this product?
+    Find the thirteen adjacent digits in the 1000-digit number that have the
+    greatest product. What is the value of this product?
     """
 
     def __init__(self, input_number, x_long):
@@ -13,7 +14,7 @@ class Eight(object):
         self.x_long = x_long
 
     def find_high_product_of_x_adjacent_numbers_in_input_number(self, input_number, x_long):
-        high_product = None
+        high_product = 0
         for i in range(len(input_number)-x_long):
             set = input_number[i:i+x_long]
             current_product = 1
@@ -29,11 +30,10 @@ class Eight(object):
 
 
 input_number = str()
-with open('/Users/uec561/GitHub/projecteuler/projecteuler/eight_input_number.txt') as input_file:
+with open('/Users/tphoran/github/projecteuler/projecteuler/eight_input_number.txt') as input_file:
     for line in input_file:
         input_number += line
 
 test = Eight(input_number, 13)
 
-print test.solve()
-
+print(test.solve())

@@ -1,6 +1,7 @@
 class Thirteen(object):
     """
-    Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.
+    Work out the first ten digits of the sum of the following one-hundred
+    50-digit numbers.
 
     https://projecteuler.net/problem=13
 
@@ -25,7 +26,7 @@ class Thirteen(object):
 
 
 list_of_numbers_to_add = []
-with open('/Users/tphoran/GitHub/projecteuler/projecteuler/thirteen_input_number.txt') as input_file:
+with open('/Users/tphoran/github/projecteuler/projecteuler/thirteen_input_number.txt') as input_file:
     for line in input_file:
         list_of_numbers_to_add.append(int(line))
 

@@ -31,4 +31,4 @@ class Ten(object):
 
 ten = Ten(2000000)
 solution = ten.solve()
-print solution
+print(solution)

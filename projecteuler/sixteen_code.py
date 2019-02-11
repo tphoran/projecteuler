@@ -20,5 +20,6 @@ class Sixteen(object):
         solution = self.sum_of_digits_2_to_x_power(self.power)
         return solution
 
+
 sixteen = Sixteen(1000)
 print(sixteen.solve())
